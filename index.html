@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة الجماعات المحلية</title>
+    <!-- TailwindCSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom Styles -->
+    <link href="dist/styles.css" rel="stylesheet">
+</head>
+
+<body class="bg-white font-sans">
+
+    <header class="bg-white shadow-lg">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+          <!-- Logo or Title -->
+          <h1 class="text-2xl font-bold text-blue-600">بوابة الجماعات المحلية</h1>
+    
+          <!-- Navigation Menu -->
+          <nav>
+            <ul class="flex space-x-6">
+              <!-- Dropdown Menu 1 - الجماعات المحلية -->
+              <li class="relative group">
+                <a href="#" class="text-gray-800 hover:text-blue-600">الجماعات المحلية</a>
+                <ul class="absolute left-0 hidden mt-2 space-y-2 bg-white shadow-lg group-hover:block">
+                  <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">الخدمات البلدية</a></li>
+                  <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">التقييمات البلديات</a></li>
+                </ul>
+              </li>
+    
+              <!-- Dropdown Menu 2 - اللامركزية -->
+              <li class="relative group">
+                <a href="#" class="text-gray-800 hover:text-blue-600">اللامركزية</a>
+                <ul class="absolute left-0 hidden mt-2 space-y-2 bg-white shadow-lg group-hover:block">
+                  <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">إصلاحات الإدارة المحلية</a></li>
+                  <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">القرارات الوزارية</a></li>
+                </ul>
+              </li>
+    
+              <!-- Dropdown Menu 3 - المستجدات -->
+              <li class="relative group">
+                <a href="#" class="text-gray-800 hover:text-blue-600">المستجدات</a>
+                <ul class="absolute left-0 hidden mt-2 space-y-2 bg-white shadow-lg group-hover:block">
+                  <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">آخر الأخبار</a></li>
+                  <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">الفعاليات القادمة</a></li>
+                </ul>
+              </li>
+    
+              <!-- Dropdown Menu 4 - المراجع و المنشورات -->
+              <li class="relative group">
+                <a href="#" class="text-gray-800 hover:text-blue-600">المراجع و المنشورات</a>
+                <ul class="absolute left-0 hidden mt-2 space-y-2 bg-white shadow-lg group-hover:block">
+                  <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">التشريعات</a></li>
+                  <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">المنشورات الحكومية</a></li>
+                </ul>
+              </li>
+    
+              <!-- Dropdown Menu 5 - فضاء الادارة -->
+              <li class="relative group">
+                <a href="#" class="text-gray-800 hover:text-blue-600">فضاء الادارة</a>
+                <ul class="absolute left-0 hidden mt-2 space-y-2 bg-white shadow-lg group-hover:block">
+                  <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">أدوات الإدارة</a></li>
+                  <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">التقارير الإدارية</a></li>
+                </ul>
+              </li>
+    
+              <!-- Dropdown Menu 6 - فضاء المواطن -->
+              <li class="relative group">
+                <a href="#" class="text-gray-800 hover:text-blue-600">فضاء المواطن</a>
+                <ul class="absolute left-0 hidden mt-2 space-y-2 bg-white shadow-lg group-hover:block">
+                  <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">شكاوي المواطنين</a></li>
+                  <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">الاستعلامات العامة</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+    
+          <!-- Search Bar -->
+          <div class="relative">
+            <input type="text" id="searchInput" placeholder="بحث..." class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <button class="absolute right-0 top-0 mt-2 mr-2 text-gray-500 hover:text-blue-600">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+
+    <!-- Guide Popup (Appears as soon as the page loads) -->
+    <div id="guidePopup" class="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-70 hidden">
+        <div class="bg-white p-6 rounded-lg flex items-center space-x-6 max-w-md mx-auto">
+          <img src="assets/images/Baldi.jpg" alt="Baldi" class="w-16 h-16 object-cover rounded-full">
+          <div>
+            <p id="guideText" class="text-lg text-gray-700">
+              مرحبًا بكم في بوابة الجماعات المحلية. أنا بلدي، المساعد الشخصي.
+            </p>
+            <button id="noButton" class="mt-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">
+              تخطي الدليل
+            </button>
+            <button id="yesButton" class="yes-button" style="display: none;">نعم</button>
+          </div>
+        </div>
+      </div>
+
+    <!-- Start Guide Button (Positioned at the top left) -->
+    <button id="startGuideButton" class="bg-red-600 text-white text-2xl px-8 py-4 rounded-lg fixed top-4 left-4 z-50 shadow-lg hover:bg-red-700">
+        ابدأ الدليل
+    </button>
+
+    <!-- Main Content Section -->
+    <div class="container mx-auto py-4">
+        <h1 class="text-2xl font-bold mb-4">التقييم النهائي للأداء البلديات بعنوان سنة 2018</h1>
+        <p class="text-lg mb-6">
+            مشروع بوابة الجماعات المحلية يهدف إلى تقديم خدمات إلكترونية مبتكرة لتحسين أداء البلديات في تونس...
+        </p>
+
+        <!-- About Section -->
+        <section id="about" class="my-8">
+            <h2 class="text-xl font-bold">عن المشروع</h2>
+            <p>
+                بوابة الجماعات المحلية هي منصة رقمية مبتكرة تهدف إلى تقديم خدمات شاملة للمواطنين البلديين...
+            </p>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="my-8">
+            <h2 class="text-xl font-bold">خدماتنا</h2>
+            <ul>
+                <li>خدمة البلاغات: تقديم تقارير عن المشاكل في البلديات</li>
+                <li>خدمات الفواتير: دفع الفواتير عبر الإنترنت بسهولة</li>
+                <li>الاستشارات: إمكانية استشارة المختصين في الإدارة المحلية</li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="my-8">
+            <h2 class="text-xl font-bold">اتصل بنا</h2>
+            <p>لأي استفسارات أو مقترحات، يمكنكم الاتصال بنا عبر البريد الإلكتروني أو زيارة مقرنا:</p>
+            <p>Email: info@localgate.tn</p>
+            <p>العنوان: تونس العاصمة، شارع 9 أفريل</p>
+        </section>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-red-600 text-white py-4 text-center">
+        <p>حقوق الطبع والنشر © 2024 بوابة الجماعات المحلية. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script type="module" src="scripts/app.js"></script>
+    <script type="module" src="scripts/portal.js"></script>
+
+</body>
+
+</html>
